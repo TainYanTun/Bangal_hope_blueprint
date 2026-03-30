@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>B&W BLUEPRINT: ADMISSION_ENTRY</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: white;
+            color: black;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar { width: 252px; border-right: 2px solid black; padding: 10px; }
+        .main { flex: 1; display: flex; flex-direction: column; }
+        .topbar { height: 64px; border-bottom: 2px solid black; padding: 0 20px; display: flex; align-items: center; }
+        .content { padding: 40px; max-width: 900px; }
+
+        .annotate { font-size: 9px; border: 1px solid black; padding: 2px 4px; display: inline-block; text-transform: uppercase; font-weight: bold; margin-bottom: 5px; }
+        .block { border: 1px solid black; position: relative; padding: 20px; margin-bottom: 20px; }
+        
+        /* Form Components */
+        .field-wire { border: 1px solid black; height: 35px; margin-top: 5px; margin-bottom: 15px; position: relative; }
+        .field-wire::after { content: '[DATA_INPUT]'; position: absolute; right: 5px; bottom: 2px; font-size: 8px; opacity: 0.4; }
+        
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .btn-wire { border: 2px solid black; padding: 10px 30px; font-weight: bold; cursor: pointer; display: inline-block; font-size: 12px; }
+        .btn-filled { background: black; color: white; }
+
+        h3 { font-size: 14px; margin-bottom: 10px; text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div style="border: 1px solid black; height: 80px; margin-bottom: 20px; text-align: center;"><br>[BH_LOGO]</div>
+        <div style="font-size: 11px; line-height: 2;">
+            > DASHBOARD<br>
+            > ALL_STUDENTS
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div style="font-size: 11px;">FORM_SCHEMA: NEW_ADMISSION_V1.2</div>
+        </header>
+
+        <div class="content">
+            <div style="border-bottom: 2px solid black; margin-bottom: 30px; padding-bottom: 10px;">
+                <h2 style="font-size: 22px;">FORM: CHILD_ADMISSION_ENTRY</h2>
+            </div>
+
+            <!-- SECTION 01 -->
+            <div class="block">
+                <div class="annotate">SEC_01: PERS_IDENTITY</div>
+                <div style="margin-top: 10px;">
+                    <div style="font-size: 10px;">NAME_FULL_LEGAL</div>
+                    <div class="field-wire"></div>
+                </div>
+                <div class="grid-2">
+                    <div>
+                        <div style="font-size: 10px;">DOB_ISO_VALUE</div>
+                        <div class="field-wire"></div>
+                    </div>
+                    <div>
+                        <div style="font-size: 10px;">GENDER_CATEGORY</div>
+                        <div class="field-wire"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 02 -->
+            <div class="block">
+                <div class="annotate">SEC_02: PRG_PLACEMENT</div>
+                <div class="grid-2" style="margin-top: 10px;">
+                    <div>
+                        <div style="font-size: 10px;">ASSIGN_PROGRAM_UID</div>
+                        <div class="field-wire"></div>
+                    </div>
+                    <div>
+                        <div style="font-size: 10px;">ADMISSION_DATE_STAMP</div>
+                        <div class="field-wire"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 03 -->
+            <div class="block">
+                <div class="annotate">SEC_03: GUARDIAN_REL</div>
+                <div style="margin-top: 10px;">
+                    <div style="font-size: 10px;">GUARDIAN_NAME</div>
+                    <div class="field-wire"></div>
+                    <div style="font-size: 10px;">CASE_SUMMARY_NARRATIVE</div>
+                    <div class="field-wire" style="height: 100px;"></div>
+                </div>
+            </div>
+
+            <!-- CONTROLS -->
+            <div style="display: flex; justify-content: flex-end; gap: 15px; margin-top: 20px;">
+                <div class="btn-wire">OP_CANCEL</div>
+                <div class="btn-wire">OP_SAVE_DRAFT</div>
+                <div class="btn-wire btn-filled">OP_CONFIRM_ENTRY</div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

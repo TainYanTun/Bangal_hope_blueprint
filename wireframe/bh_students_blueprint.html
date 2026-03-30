@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>B&W BLUEPRINT: STUDENT_DIRECTORY</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: white;
+            color: black;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .annotate { font-size: 9px; border: 1px solid black; padding: 2px 4px; position: absolute; background: white; z-index: 10; text-transform: uppercase; font-weight: bold; }
+        .sidebar { width: 252px; border-right: 2px solid black; display: flex; flex-direction: column; padding: 10px; }
+        .main { flex: 1; display: flex; flex-direction: column; }
+        .topbar { height: 64px; border-bottom: 2px solid black; padding: 0 20px; display: flex; align-items: center; }
+        .content { padding: 30px; display: flex; flex-direction: column; gap: 20px; }
+
+        .block { border: 1px solid black; position: relative; padding: 15px; }
+        .block::after { content: attr(data-id); position: absolute; bottom: 2px; right: 5px; font-size: 8px; opacity: 0.5; }
+
+        /* Module Specifics */
+        .tabs { display: flex; border-bottom: 1px solid black; }
+        .tab-node { padding: 10px 15px; border-right: 1px solid black; font-size: 11px; }
+        .tab-node.active { background: black; color: white; font-weight: bold; }
+
+        .filter-row { display: flex; gap: 10px; margin: 15px 0; align-items: center; }
+        .filter-box { border: 1px dashed black; height: 30px; padding: 5px; font-size: 10px; display: flex; align-items: center; }
+
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 10px; font-size: 11px; text-align: left; }
+        th { background: #f0f0f0; }
+
+        .btn-node { border: 1px solid black; padding: 5px 15px; font-size: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="block" data-id="LOGO_ASSET" style="height: 80px; margin-bottom: 20px; text-align: center;">[BH_LOGO]</div>
+        <div class="block" data-id="NAV_CORE">
+            <div style="padding:10px 0;">> DASHBOARD</div>
+            <div style="padding:10px 0; background: black; color: white;">> ALL_STUDENTS</div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div style="font-size: 11px;">SCHEMA: DIRECTORY // STUDENT_MASTER_GRID</div>
+        </header>
+
+        <div class="content">
+            <div class="block" data-id="MODULE: STUDENT_MGMT" style="padding: 0;">
+                <div class="tabs">
+                    <div class="tab-node active">KIDS_INFO</div>
+                    <div class="tab-node">CASE_HISTORY</div>
+                    <div class="tab-node">SPONSORS</div>
+                    <div class="tab-node">APR_LOGS</div>
+                </div>
+                
+                <div style="padding: 20px;">
+                    <div class="annotate" style="top: 45px; left: 20px;">FILTER_BLOCK_V1</div>
+                    <div class="filter-row">
+                        <div class="filter-box" style="width: 220px;">SEARCH: "NAME_RECORD"</div>
+                        <div class="filter-box">SEL: GENDER</div>
+                        <div class="filter-box">SEL: PROGRAM</div>
+                        <div class="btn-node" style="margin-left: auto;">[+] ADMIT_NEW</div>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr><th>UID_STAMP</th><th>NAME_STRING</th><th>AGE_VAL</th><th>SPONSOR_REL</th><th>OP_NODES</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>#LRC-0124</td><td>RINA BEGUM</td><td>7.2Y</td><td>JAMES_O</td><td>[VIEW] [EDIT]</td></tr>
+                            <tr><td>#LRC-0109</td><td>M. KARIM</td><td>11.0Y</td><td>SARAH_M</td><td>[VIEW] [EDIT]</td></tr>
+                            <tr><td>#BRD-0255</td><td>F. AKTER</td><td>9.5Y</td><td>--NONE--</td><td>[VIEW] [EDIT]</td></tr>
+                        </tbody>
+                    </table>
+
+                    <div style="margin-top: 20px; text-align: center; font-size: 9px; border-top: 1px dashed black; padding-top: 15px;">
+                        PAGINATION: [1] [2] [3] ... [42]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

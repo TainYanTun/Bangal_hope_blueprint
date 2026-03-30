@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>B&W BLUEPRINT: DASHBOARD_LAYOUT</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: white;
+            color: black;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Technical Markers */
+        .annotate { font-size: 9px; border: 1px solid black; padding: 2px 4px; position: absolute; background: white; z-index: 10; text-transform: uppercase; font-weight: bold; }
+        .dim-line { position: absolute; border: 0.5px solid black; }
+        .dim-line::before, .dim-line::after { content: ''; position: absolute; background: black; }
+
+        .sidebar { width: 252px; border-right: 2px solid black; display: flex; flex-direction: column; position: relative; }
+        .main { flex: 1; display: flex; flex-direction: column; }
+        .topbar { height: 64px; border-bottom: 2px solid black; display: flex; align-items: center; padding: 0 25px; position: relative; }
+        .content { padding: 30px; display: flex; flex-direction: column; gap: 20px; }
+
+        .block { border: 1px solid black; position: relative; padding: 15px; }
+        .block-dashed { border: 1px dashed black; position: relative; padding: 15px; }
+        
+        /* Layout Components */
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .summary-row { display: flex; border: 1px double black; height: 60px; }
+        .summary-node { flex: 1; border-right: 1px solid black; display: flex; align-items: center; justify-content: center; font-size: 10px; }
+        .two-col { display: grid; grid-template-columns: 1fr 310px; gap: 16px; }
+
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 8px; font-size: 10px; text-align: left; }
+        
+        .action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .action-node { border: 1px dashed black; height: 65px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 9px; }
+
+        .nav-item { border-bottom: 1px dashed #ccc; padding: 10px 5px; font-size: 11px; display: flex; justify-content: space-between; }
+        .active-node { background: black; color: white; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <!-- SIDEBAR BluePrint -->
+    <aside class="sidebar">
+        <div class="annotate" style="top: 10px; right: -40px;">W: 252px</div>
+        <div class="block" style="height: 80px; margin: 10px; border-style: double; text-align: center;">
+            <br>[ASSET: LOGO_V1]<br>BANGLA_HOPE
+        </div>
+        
+        <div class="block-dashed" style="margin: 10px;">
+            <div class="annotate" style="top: -10px; left: 10px;">NAV_GRP: 01</div>
+            <div class="nav-item active-node">DASHBOARD [ACT]</div>
+            <div class="nav-item">ALL_STUDENTS [821]</div>
+        </div>
+
+        <div class="block-dashed" style="margin: 10px;">
+            <div class="annotate" style="top: -10px; left: 10px;">NAV_GRP: 02</div>
+            <div class="nav-item">LRC_HOME [124]</div>
+            <div class="nav-item">BOARDING [147]</div>
+            <div class="nav-item">VILLAGE [550]</div>
+        </div>
+
+        <div class="block" style="margin-top: auto; height: 60px; margin: 10px;">
+            USER: MAIN_ADMIN<br>
+            <span style="font-size: 9px;">UID: #9928_HILI</span>
+        </div>
+    </aside>
+
+    <main class="main">
+        <!-- TOPBAR BluePrint -->
+        <header class="topbar">
+            <div class="annotate" style="bottom: -10px; left: 20px;">H: 64px</div>
+            <div style="font-size: 11px;">SCHEMA: DASHBOARD // CORE_OVERVIEW</div>
+            <div class="block" style="margin-left: auto; width: 280px; height: 36px; padding: 8px;">
+                [INPUT_FIELD] "SEARCH_RECORDS"
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- HEADER -->
+            <div style="border-left: 5px solid black; padding-left: 15px; margin-bottom: 10px;">
+                <h2 style="font-size: 20px;">SYSTEM_DASHBOARD_MASTER</h2>
+                <div style="font-size: 10px;">STATE: AY_2024-25 // LOC: HILI_TOWN_OFFICE</div>
+            </div>
+
+            <!-- METRIC BLOCKS -->
+            <div class="stats-grid">
+                <div class="block">
+                    <div class="annotate" style="top: -10px; right: 5px;">M_01</div>
+                    <div style="font-size: 9px;">TOTAL_STUDENTS</div>
+                    <div style="font-size: 24px; font-weight: bold;">821</div>
+                    <div style="font-size: 9px; border-top: 1px solid black; margin-top: 5px;">+34_ANNUAL</div>
+                </div>
+                <div class="block">
+                    <div class="annotate" style="top: -10px; right: 5px;">M_02</div>
+                    <div style="font-size: 9px;">ACTIVE_SPONSORS</div>
+                    <div style="font-size: 24px; font-weight: bold;">312</div>
+                    <div style="font-size: 9px; border-top: 1px solid black; margin-top: 5px;">+12_QTR</div>
+                </div>
+                <div class="block">
+                    <div class="annotate" style="top: -10px; right: 5px;">M_03</div>
+                    <div style="font-size: 9px;">MONTHLY_SUBSIDY</div>
+                    <div style="font-size: 24px; font-weight: bold;">৳4.2L</div>
+                    <div style="font-size: 9px; border-top: 1px solid black; margin-top: 5px;">CURR: BDT</div>
+                </div>
+                <div class="block">
+                    <div class="annotate" style="top: -10px; right: 5px;">M_04</div>
+                    <div style="font-size: 9px;">ARCHIVE_COUNT</div>
+                    <div style="font-size: 24px; font-weight: bold;">48</div>
+                    <div style="font-size: 9px; border-top: 1px solid black; margin-top: 5px;">-6_TERM</div>
+                </div>
+            </div>
+
+            <!-- SUMMARY AGGREGATE -->
+            <div class="summary-row">
+                <div class="annotate" style="top: -10px; left: 20px;">COMP: DIST_BAR</div>
+                <div class="summary-node">LRC: 124</div>
+                <div class="summary-node">BRD: 147</div>
+                <div class="summary-node">VLG: 550</div>
+                <div class="summary-node" style="background: #f0f0f0;">LOAN: --</div>
+                <div class="summary-node" style="background: #f0f0f0;">STF: --</div>
+            </div>
+
+            <div class="two-col">
+                <!-- PROGRAMS TABLE -->
+                <div class="block">
+                    <div class="annotate" style="top: -10px; left: 15px;">GRID: PRG_OVERVIEW</div>
+                    <table>
+                        <thead>
+                            <tr><th>UID</th><th>POPULATION</th><th>CAT</th><th>LOAD_METRIC</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>LRC_RESIDENTIAL</td><td>124</td><td>RES</td><td>[||||||----] 62%</td></tr>
+                            <tr><td>BOARDING_SYSTEM</td><td>147</td><td>BRD</td><td>[|||||||---] 74%</td></tr>
+                            <tr><td>VILLAGE_NETWORK</td><td>550</td><td>DAY</td><td>[|||||||||-] 91%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <!-- ACTIONS -->
+                    <div class="block">
+                        <div class="annotate" style="top: -10px; left: 15px;">TRIGGER_NODES</div>
+                        <div class="action-grid">
+                            <div class="action-node">ADMIT_CHILD<br>[bh_admit]</div>
+                            <div class="action-node">GEN_APR</div>
+                            <div class="action-node">THANK_YOU</div>
+                            <div class="action-node">DROP_XFER</div>
+                        </div>
+                    </div>
+                    <!-- LOG -->
+                    <div class="block" style="flex: 1;">
+                        <div class="annotate" style="top: -10px; left: 15px;">EVENT_LOG</div>
+                        <div style="font-size: 9px; line-height: 2;">
+                            > [09:42] ADM: RINA_BEGUM<br>
+                            > [08:15] JOB: APR_COMPLETE<br>
+                            > [16:30] COM: 18_LTR_SENT
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
