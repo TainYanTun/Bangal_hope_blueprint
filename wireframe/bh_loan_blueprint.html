@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>B&W BLUEPRINT: HIGHER_STUDY_LOAN</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: white; color: black; font-family: 'Courier New', Courier, monospace; display: flex; min-height: 100vh; }
+        .annotate { font-size: 9px; border: 1px solid black; padding: 2px 4px; position: absolute; background: white; z-index: 10; text-transform: uppercase; font-weight: bold; }
+        .sidebar { width: 252px; border-right: 2px solid black; display: flex; flex-direction: column; position: relative; }
+        .main { flex: 1; display: flex; flex-direction: column; }
+        .topbar { height: 64px; border-bottom: 2px solid black; padding: 0 20px; display: flex; align-items: center; }
+        .content { padding: 30px; display: flex; flex-direction: column; gap: 20px; }
+        .block { border: 1px solid black; position: relative; padding: 15px; }
+        .block-dashed { border: 1px dashed black; position: relative; padding: 15px; }
+        .nav-item { border-bottom: 1px dashed #ccc; padding: 10px 5px; font-size: 11px; display: flex; justify-content: space-between; }
+        .active-node { background: black; color: white; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 8px; font-size: 10px; text-align: left; }
+        th { background: #f0f0f0; }
+        .btn-node { border: 1px solid black; padding: 5px 15px; font-size: 10px; font-weight: bold; cursor: pointer; text-decoration: none; color: black; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="block" style="height: 80px; margin: 10px; border-style: double; text-align: center;"><br>[BH_LOGO]<br>BANGLA_HOPE</div>
+        <div class="block-dashed" style="margin: 10px;">
+            <div class="annotate" style="top: -10px; left: 10px;">NAV_GRP: OVERVIEW</div>
+            <div class="nav-item">> DASHBOARD</div>
+            <div class="nav-item">> ALL_STUDENTS [821]</div>
+        </div>
+        <div class="block-dashed" style="margin: 10px;">
+            <div class="annotate" style="top: -10px; left: 10px;">NAV_GRP: PROGRAMS</div>
+            <div class="nav-item">> LRC_HOME [124]</div>
+            <div class="nav-item">> BOARDING [147]</div>
+            <div class="nav-item">> VILLAGE [550]</div>
+            <div class="nav-item active-node">> LOAN_PROG [ACT]</div>
+            <div class="nav-item">> STAFF_CHILDREN</div>
+        </div>
+        <div class="block-dashed" style="margin: 10px;">
+            <div class="annotate" style="top: -10px; left: 10px;">NAV_GRP: MANAGEMENT</div>
+            <div class="nav-item">> SPONSORS [312]</div>
+            <div class="nav-item">> SUBSIDIES_FINANCE</div>
+            <div class="nav-item">> REPORTS_APR</div>
+            <div class="nav-item">> THANK_YOU_LETTERS</div>
+            <div class="nav-item">> DROP_ARCHIVE</div>
+        </div>
+        <div class="block" style="margin-top: auto; height: 60px; margin: 10px;">USER: MAIN_ADMIN<br><span style="font-size: 9px;">UID: #9928_HILI</span></div>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div style="font-size: 11px;">SCHEMA: PROGRAM // LOAN_HIGHER_STUDY // MASTER_VIEW</div>
+            <div style="margin-left: auto; display: flex; gap: 10px;">
+                <div class="btn-node">[+] INITIATE_NEW_LOAN_AGREEMENT</div>
+            </div>
+        </header>
+        <div class="content">
+            <div style="border-left: 5px solid black; padding-left: 15px; margin-bottom: 10px;">
+                <h2 style="font-size: 20px;">HIGHER_STUDY_LOAN_PROGRAM</h2>
+                <div style="font-size: 10px;">FOCUS: UNIVERSITY_&_COLLEGE // STATUS: ACTIVE</div>
+            </div>
+
+            <div class="grid-3">
+                <div class="block">
+                    <div class="annotate" style="top: -10px; left: 10px;">METRIC: ACTIVE_LOANS</div>
+                    <div style="font-size: 14px; font-weight: bold;">42 Students</div>
+                    <div style="font-size: 8px;">TOTAL_OUTSTANDING_RECORDS</div>
+                </div>
+                <div class="block">
+                    <div class="annotate" style="top: -10px; left: 10px;">METRIC: REFUND_RATE</div>
+                    <div style="font-size: 14px; font-weight: bold;">৳85,000 / mo</div>
+                    <div style="font-size: 8px;">TOTAL_COLLECTED_REFUNDS</div>
+                </div>
+                <div class="block-dashed">
+                    <div class="annotate" style="top: -10px; left: 10px;">ALERTS</div>
+                    <div style="font-size: 10px; color: red;">> 3 AGREEMENTS EXPIRED<br>> 5 PENDING REFUNDS</div>
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="annotate" style="top: -10px; left: 10px;">LOAN_MASTER_LIST</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>STUDENT_ID</th>
+                            <th>NAME / INSTITUTION</th>
+                            <th>TOTAL_LOAN</th>
+                            <th>REFUNDED</th>
+                            <th>SPONSOR(S)</th>
+                            <th>DOCS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#LON-0021</td>
+                            <td>A. RAHMAN<br><span style="font-size: 8px;">DHAKA UNIVERSITY</span></td>
+                            <td>৳1,20,000</td>
+                            <td>৳15,000</td>
+                            <td>JAMES_O [CO]</td>
+                            <td>[AGREEMENT] [PHOTO]</td>
+                        </tr>
+                        <tr>
+                            <td>#LON-0045</td>
+                            <td>S. KHATUN<br><span style="font-size: 8px;">RAJSHAHI MEDICAL</span></td>
+                            <td>৳2,50,000</td>
+                            <td>৳0 (STUDYING)</td>
+                            <td>SARAH_M [PRI]</td>
+                            <td>[AGREEMENT] [PHOTO]</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="margin-top: 10px; text-align: center; font-size: 9px;">PAGINATION: [1] [2] // SHOWING_2_OF_42</div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="block">
+                    <div class="annotate" style="top: -10px; left: 10px;">REFUND_MANAGEMENT_NODE</div>
+                    <div style="font-size: 10px; margin-bottom: 10px;">RECORD_NEW_REFUND_ENTRY:</div>
+                    <div style="display: flex; gap: 5px;">
+                        <div style="border: 1px dashed black; flex: 1; padding: 5px; font-size: 9px;">SEL_STUDENT_UID</div>
+                        <div style="border: 1px dashed black; width: 80px; padding: 5px; font-size: 9px;">AMOUNT</div>
+                        <div class="btn-node">POST</div>
+                    </div>
+                </div>
+                <div class="block">
+                    <div class="annotate" style="top: -10px; left: 10px;">QUICK_REPORTS</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+                        <div class="btn-node">YEARLY_EXPENSE_SUM</div>
+                        <div class="btn-node">REFUND_TRACKER_PDF</div>
+                        <div class="btn-node">SPONSOR_LOAN_LIST</div>
+                        <div class="btn-node">DOWNLOAD_CSV_ALL</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

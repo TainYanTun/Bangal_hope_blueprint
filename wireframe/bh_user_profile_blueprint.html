@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>B&W BLUEPRINT: USER_PROFILE_SETTINGS</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: white;
+            color: black;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .annotate { font-size: 9px; border: 1px solid black; padding: 2px 4px; position: absolute; background: white; z-index: 10; text-transform: uppercase; font-weight: bold; }
+        .sidebar { width: 252px; border-right: 2px solid black; display: flex; flex-direction: column; position: relative; }
+        .main { flex: 1; display: flex; flex-direction: column; }
+        .topbar { height: 64px; border-bottom: 2px solid black; padding: 0 20px; display: flex; align-items: center; }
+        .content { padding: 30px; display: flex; flex-direction: column; gap: 20px; }
+
+        .block { border: 1px solid black; position: relative; padding: 15px; }
+        .block-dashed { border: 1px dashed black; position: relative; padding: 15px; }
+        
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        
+        .btn-node { border: 1px solid black; padding: 5px 15px; font-size: 10px; font-weight: bold; cursor: pointer; text-decoration: none; color: black; display: inline-block; }
+        .nav-item { border-bottom: 1px dashed #ccc; padding: 10px 5px; font-size: 11px; display: flex; justify-content: space-between; }
+        .active-node { background: black; color: white; font-weight: bold; }
+        
+        .field-label { font-size: 9px; font-weight: bold; text-transform: uppercase; margin-bottom: 3px; }
+        .field-value { font-size: 12px; margin-bottom: 12px; border-bottom: 1px solid #eee; }
+
+        .toggle-wire { border: 1px solid black; width: 40px; height: 20px; position: relative; display: inline-block; vertical-align: middle; margin-left: 10px; }
+        .toggle-wire::after { content: ''; position: absolute; width: 14px; height: 14px; background: black; top: 2px; left: 2px; }
+        .toggle-wire.on::after { left: 22px; }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="block" style="height: 80px; margin: 10px; border-style: double; text-align: center;">
+            <br>[BH_LOGO]<br>BANGLA_HOPE
+        </div>
+        
+        <div class="block-dashed" style="margin: 10px;">
+            <div class="annotate" style="top: -10px; left: 10px;">NAV_GRP: OVERVIEW</div>
+            <div class="nav-item">> DASHBOARD</div>
+            <div class="nav-item">> ALL_STUDENTS [821]</div>
+        </div>
+
+        <div class="block-dashed" style="margin: 10px;">
+            <div class="annotate" style="top: -10px; left: 10px;">NAV_GRP: PROGRAMS</div>
+            <div class="nav-item">> LRC_HOME [124]</div>
+            <div class="nav-item">> BOARDING [147]</div>
+            <div class="nav-item">> VILLAGE [550]</div>
+            <div class="nav-item">> LOAN_PROG</div>
+            <div class="nav-item">> STAFF_CHILDREN</div>
+        </div>
+
+        <div class="block-dashed" style="margin: 10px;">
+            <div class="annotate" style="top: -10px; left: 10px;">NAV_GRP: MANAGEMENT</div>
+            <div class="nav-item">> SPONSORS [312]</div>
+            <div class="nav-item">> SUBSIDIES_FINANCE</div>
+            <div class="nav-item">> REPORTS_APR</div>
+            <div class="nav-item">> THANK_YOU_LETTERS</div>
+            <div class="nav-item">> DROP_ARCHIVE</div>
+        </div>
+
+        <div class="block active-node" style="margin-top: auto; height: 60px; margin: 10px; cursor: pointer;">
+            USER: MAIN_ADMIN<br>
+            <span style="font-size: 9px; color: white;">UID: #9928_HILI</span>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div style="font-size: 11px;">SCHEMA: SETTINGS // USER_PROFILE // MAIN_ADMIN</div>
+            <div style="margin-left: auto;">
+                <div class="btn-node"> [SAVE_CHANGES] </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <div style="border-left: 5px solid black; padding-left: 15px; margin-bottom: 20px;">
+                <h2 style="font-size: 22px;">ACCOUNT_SETTINGS</h2>
+                <div style="font-size: 10px;">NODE: HILI_OFFICE // ROLE: SYSTEM_ADMINISTRATOR</div>
+            </div>
+
+            <div class="grid-2">
+                <!-- PERSONAL IDENTITY -->
+                <div class="block">
+                    <div class="annotate" style="top: -10px; left: 10px;">SEC_01: PERS_IDENTITY</div>
+                    <div class="field-label">FULL_NAME</div>
+                    <div class="field-value">Main Admin (Hili)</div>
+                    
+                    <div class="field-label">OFFICIAL_EMAIL</div>
+                    <div class="field-value">admin.hili@banglahope.org</div>
+                    
+                    <div class="field-label">USER_UID</div>
+                    <div class="field-value">#9928_HILI</div>
+                </div>
+
+                <!-- SYSTEM PREFERENCES -->
+                <div class="block">
+                    <div class="annotate" style="top: -10px; left: 10px;">SEC_02: UI_PREFERENCES</div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <span class="field-label">DARK_MODE_INTERFACE</span>
+                        <div class="toggle-wire on"></div>
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <span class="field-label">COMPACT_VIEW_TABLES</span>
+                        <div class="toggle-wire"></div>
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <span class="field-label">DEFAULT_CURRENCY</span>
+                        <div class="field-value">BDT (৳)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECURITY & AUTH -->
+            <div class="block-dashed">
+                <div class="annotate" style="top: -10px; left: 10px;">SEC_03: SECURITY_AUTHENTICATION</div>
+                <div class="grid-2">
+                    <div>
+                        <div style="margin-bottom: 15px;">
+                            <span class="field-label">MULTI_FACTOR_AUTH (MFA)</span>
+                            <div class="toggle-wire on"></div>
+                            <div style="font-size: 8px; margin-top: 5px;">STATUS: ENABLED // NODE_TOKEN_REQ</div>
+                        </div>
+                        <div class="btn-node">CHANGE_PASSPHRASE</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div class="field-label">LAST_LOGIN_STAMP</div>
+                        <div class="field-value">2026-04-02 // 09:15 AM</div>
+                        <div class="field-label">IP_ADDRESS</div>
+                        <div class="field-value">192.168.1.44</div>
+                        <div class="btn-node" style="border-color: red;">TERMINATE_ALL_SESSIONS</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</body>
+</html>
