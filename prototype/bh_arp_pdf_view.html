@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Preview – ARP 2024: Rina Begum</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e3a4a;
+      --accent-teal: #2B7A9E; 
+      --bg-pdf-viewer: #525659;
+      --shadow-pdf: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Nunito', sans-serif; background: var(--bg-pdf-viewer); display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 40px 0; }
+
+    /* PDF VIEWER TOOLBAR */
+    .viewer-toolbar { width: 800px; height: 48px; background: #323639; color: white; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; position: fixed; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+    .toolbar-title { font-size: 13px; font-weight: 400; }
+    .toolbar-actions { display: flex; gap: 15px; align-items: center; }
+    .toolbar-btn { cursor: pointer; opacity: 0.8; transition: opacity 0.2s; }
+    .toolbar-btn:hover { opacity: 1; }
+
+    /* PDF PAGE */
+    .pdf-page { background: white; width: 793px; min-height: 1122px; box-shadow: var(--shadow-pdf); margin-top: 20px; padding: 80px 90px; display: flex; flex-direction: column; color: #000; position: relative; }
+    
+    .pdf-header { border-bottom: 2px solid var(--primary); padding-bottom: 20px; margin-bottom: 40px; display: flex; justify-content: space-between; align-items: center; }
+    .pdf-branding h1 { font-family: 'Lora', serif; font-size: 28px; color: var(--primary); }
+    .pdf-branding p { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-teal); font-weight: 700; margin-top: 4px; }
+    
+    .report-meta { text-align: right; }
+    .report-meta h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+    .report-meta p { font-size: 12px; color: #666; }
+
+    .student-summary { display: flex; gap: 30px; margin-bottom: 50px; background: #f8fafc; padding: 25px; border-radius: 4px; border-left: 5px solid var(--primary); }
+    .student-photo { width: 130px; height: 160px; background: #e2e8f0; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #94a3b8; font-weight: 700; }
+    .summary-details { flex: 1; }
+    .student-name { font-family: 'Lora', serif; font-size: 32px; margin-bottom: 15px; }
+    
+    .data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .data-item { display: flex; flex-direction: column; }
+    .data-label { font-size: 10px; font-weight: 800; color: #64748b; text-transform: uppercase; margin-bottom: 2px; }
+    .data-value { font-size: 14px; font-weight: 600; color: #0f172a; }
+
+    .pdf-section { margin-bottom: 40px; }
+    .section-title { font-size: 16px; font-weight: 800; color: var(--primary); text-transform: uppercase; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 20px; letter-spacing: 0.05em; }
+    
+    .narrative-text { font-size: 13px; line-height: 1.8; color: #334155; text-align: justify; }
+
+    .performance-stats { display: flex; gap: 40px; margin-bottom: 20px; }
+    .stat-box { display: flex; flex-direction: column; align-items: center; flex: 1; padding: 15px; background: #f1f5f9; border-radius: 4px; }
+    .stat-label { font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; }
+    .stat-value { font-size: 24px; font-weight: 800; color: var(--primary); }
+
+    .handwritten-msg { border: 2px dashed #cbd5e1; padding: 30px; margin-top: 20px; min-height: 120px; display: flex; align-items: center; justify-content: center; font-family: 'Lora', serif; font-style: italic; font-size: 16px; color: #475569; }
+
+    .pdf-footer { margin-top: auto; border-top: 1px solid #eee; padding-top: 20px; display: flex; justify-content: space-between; font-size: 11px; color: #94a3b8; }
+
+    .back-btn { position: fixed; bottom: 30px; left: 30px; background: var(--primary); color: white; border: none; padding: 12px 24px; border-radius: 30px; cursor: pointer; font-size: 14px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 101; }
+    .back-btn:hover { background: #152b37; }
+
+  </style>
+</head>
+
+<body>
+  <div class="viewer-toolbar">
+    <div class="toolbar-title">ARP_2024_Rina_Begum_Draft.pdf</div>
+    <div class="toolbar-actions">
+      <div class="toolbar-btn">1 / 1</div>
+      <div style="width: 1px; height: 20px; background: #525659;"></div>
+      <svg class="toolbar-btn" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+      <svg class="toolbar-btn" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+      <div style="width: 1px; height: 20px; background: #525659;"></div>
+      <svg class="toolbar-btn" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+      <svg class="toolbar-btn" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    </div>
+  </div>
+
+  <a href="bh_arp_draft.html" class="back-btn">← Back to Editor</a>
+
+  <div class="pdf-page">
+    <div class="pdf-header">
+      <div class="pdf-branding">
+        <h1>Bangla Hope</h1>
+        <p>Empowering children since 1991</p>
+      </div>
+      <div class="report-meta">
+        <h2>Annual Progress Report</h2>
+        <p>Year Ending: December 2024</p>
+      </div>
+    </div>
+
+    <div class="pdf-body">
+      <div class="student-summary">
+        <div class="student-photo">[ STUDENT PHOTO ]</div>
+        <div class="summary-details">
+          <h1 class="student-name">Rina Begum</h1>
+          <div class="data-grid">
+            <div class="data-item"><span class="data-label">Student ID</span><span class="data-value">#LRC-0124</span></div>
+            <div class="data-item"><span class="data-label">Program</span><span class="data-value">LRC Residential Care</span></div>
+            <div class="data-item"><span class="data-label">Current Grade</span><span class="data-value">Class 2</span></div>
+            <div class="data-item"><span class="data-label">Religion</span><span class="data-value">Islam</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pdf-section">
+        <h2 class="section-title">Academic Progress</h2>
+        <div class="performance-stats">
+          <div class="stat-box">
+            <span class="stat-label">Attendance</span>
+            <span class="stat-value">98%</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Academic Result</span>
+            <span class="stat-value">78%</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Effort Grade</span>
+            <span class="stat-value">A</span>
+          </div>
+        </div>
+        <p class="narrative-text">
+          Rina is adjusting well to the LRC internal school. She is very attentive in Bengali and Creative Arts. She needs slight improvement in Mathematics but shows a positive attitude toward learning.
+        </p>
+      </div>
+
+      <div class="pdf-section">
+        <h2 class="section-title">Health & Personal Development</h2>
+        <div class="data-grid" style="margin-bottom: 15px; background: #f8fafc; padding: 15px; border-radius: 4px;">
+          <div class="data-item"><span class="data-label">General Health</span><span class="data-value">Good / Stable</span></div>
+          <div class="data-item"><span class="data-label">Social Adjustment</span><span class="data-value">Well Adjusted</span></div>
+        </div>
+        <p class="narrative-text">
+          Since moving to the residential center, Rina has become more outgoing and has made several close friends. She enjoys participating in the morning worship and singing activities. She has shown great emotional resilience during her transition.
+        </p>
+      </div>
+
+      <div class="pdf-section">
+        <h2 class="section-title">A Message to My Sponsor</h2>
+        <div class="handwritten-msg">
+          "I am very happy at my new home. I love my teachers and my friends. Thank you for helping me go to school. I am studying hard."
+        </div>
+        <p style="font-size: 11px; color: #666; margin-top: 10px; text-align: center;">Translated from Bengali</p>
+      </div>
+    </div>
+
+    <div class="pdf-footer">
+      <span>Bangla Hope Sponsorship Office — Hili, Bangladesh</span>
+      <span>www.banglahope.org</span>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -193,8 +193,8 @@
       <div class="profile-tabs">
         <div class="tab-item active" data-tab="tab-general">General Profile</div>
         <div class="tab-item" data-tab="tab-history">Journey & History</div>
-        <div class="tab-item">Finance & Sponsorship</div>
-        <div class="tab-item">Documents (APR)</div>
+        <div class="tab-item" data-tab="tab-finance">Finance & Sponsorship</div>
+        <div class="tab-item" data-tab="tab-documents">Documents (APR)</div>
       </div>
 
       <!-- TAB CONTENT: GENERAL PROFILE -->
@@ -300,6 +300,51 @@
         </div>
       </div>
 
+      <!-- TAB CONTENT: DOCUMENTS (APR/ARP) -->
+      <div id="tab-documents" style="display:none;">
+        <div class="card">
+          <span class="annotate-label">SEC_09: ANNUAL_PROGRESS_REPORTS (APR/ARP)</span>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <p class="field-label" style="margin-bottom: 0;">Sponsor Communication & Compliance Documents</p>
+            <button class="btn-primary" style="font-size: 11px;">Generate New 2024 ARP</button>
+          </div>
+          <table class="prog-table">
+            <thead>
+              <tr>
+                <th>YEAR</th>
+                <th>DOCUMENT TYPE</th>
+                <th>STATUS</th>
+                <th>DATE COMPLETED</th>
+                <th>ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2023</td>
+                <td>Annual Progress Report</td>
+                <td><span class="status-tag" style="background: #10b981; color: white;">COMPLETE</span></td>
+                <td>2023-11-12</td>
+                <td><button class="btn-secondary" style="padding: 4px 8px;">View PDF</button></td>
+              </tr>
+              <tr>
+                <td>2022</td>
+                <td>Annual Progress Report</td>
+                <td><span class="status-tag" style="background: #f59e0b; color: white;">AWAITING VALIDATION</span></td>
+                <td>--</td>
+                <td><button class="btn-secondary" style="padding: 4px 8px;">Review Draft</button></td>
+              </tr>
+              <tr>
+                <td>2024</td>
+                <td>Annual Progress Report</td>
+                <td><span class="status-tag" style="background: #94a3b8; color: white;">NOT STARTED</span></td>
+                <td>--</td>
+                <td><button class="btn-primary" style="padding: 4px 12px; font-size: 11px;" onclick="window.location.href='bh_arp_draft.html'">Start Draft</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
       <!-- ACADEMIC RECORDS -->
       <div class="card card-table">
         <span class="annotate-label" style="padding: 16px 24px 8px;">SEC_05: ACADEMIC_RECORDS</span>
@@ -318,7 +363,8 @@
     const tabs = document.querySelectorAll('.tab-item');
     const sections = {
       'tab-general': document.getElementById('tab-general'),
-      'tab-history': document.getElementById('tab-history')
+      'tab-history': document.getElementById('tab-history'),
+      'tab-documents': document.getElementById('tab-documents')
     };
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
@@ -327,7 +373,9 @@
         tabs.forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
         Object.values(sections).forEach(s => s.style.display = 'none');
-        sections[target].style.display = 'block';
+        if (sections[target]) {
+          sections[target].style.display = 'block';
+        }
       });
     });
   </script>

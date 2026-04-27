@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bangla Hope – Start ARP Draft: Rina Begum</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e3a4a;
+      --accent-teal: #2B7A9E; 
+      --accent-pink: #d17a8e;
+      --bg-app: #f8fafc;
+      --surface: #ffffff;
+      --surface-subtle: #f1f5f9;
+      --border: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --radius: 8px;
+      --radius-sm: 6px;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Nunito', sans-serif; background: var(--bg-app); color: var(--text-main); min-height: 100vh; display: flex; font-size: 14px; line-height: 1.6; }
+
+    /* SIDEBAR */
+    .sidebar { width: 252px; min-height: 100vh; background: #0a1f35; display: flex; flex-direction: column; position: fixed; top: 0; left: 0; bottom: 0; z-index: 100; }
+    .sidebar-logo { padding: 24px 20px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+    .logo-img { width: 36px; height: 36px; background: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; padding: 4px; }
+    .logo-img img { width: 100%; height: 100%; object-fit: contain; }
+    .logo-text h1 { font-family: 'Lora', serif; font-size: 15px; font-weight: 600; color: #f8fafc; line-height: 1.2; }
+    
+    .nav-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: var(--radius-sm); color: #94a3b8; text-decoration: none; font-size: 13px; margin-bottom: 2px; }
+    .nav-item:hover { background: rgba(255, 255, 255, 0.05); color: #f1f5f9; }
+    .nav-item.active { background: #1e293b; color: #fff; font-weight: 600; }
+
+    /* MAIN */
+    .main { margin-left: 252px; flex: 1; display: flex; flex-direction: column; }
+    .topbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50; }
+    .breadcrumb { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 8px; }
+    .breadcrumb a { color: var(--accent-teal); text-decoration: none; }
+
+    .content { padding: 32px; display: grid; grid-template-columns: 1fr 320px; gap: 32px; }
+
+    .card { background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); padding: 24px; box-shadow: var(--shadow); margin-bottom: 24px; }
+    .card-title { font-family: 'Lora', serif; font-size: 20px; font-weight: 600; color: var(--primary); margin-bottom: 20px; }
+    
+    .annotate-label { font-size: 10px; font-weight: 800; color: var(--accent-teal); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; display: block; border-bottom: 1px solid var(--surface-subtle); padding-bottom: 8px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 20px; }
+    .form-group { margin-bottom: 20px; }
+    .label { display: block; font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 6px; }
+    .input { width: 100%; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 6px; font-size: 14px; font-family: inherit; outline: none; }
+    .input:focus { border-color: var(--accent-teal); }
+    textarea.input { min-height: 100px; resize: vertical; }
+
+    .btn { display: inline-flex; align-items: center; padding: 10px 20px; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer; border: 1px solid transparent; text-transform: uppercase; letter-spacing: 0.05em; gap: 8px; }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-secondary { background: var(--surface-subtle); color: var(--text-main); border-color: var(--border); }
+    .btn-outline { background: transparent; border-color: var(--accent-teal); color: var(--accent-teal); }
+
+    .status-sidebar { position: sticky; top: 96px; }
+    .progress-track { margin-top: 20px; }
+    .step { display: flex; gap: 12px; margin-bottom: 15px; position: relative; }
+    .step-icon { width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--border-strong); background: white; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; z-index: 2; }
+    .step.active .step-icon { border-color: var(--accent-teal); color: var(--accent-teal); }
+    .step.complete .step-icon { background: var(--accent-teal); border-color: var(--accent-teal); color: white; }
+    .step-text { font-size: 12px; font-weight: 700; color: var(--text-muted); padding-top: 3px; }
+    .step.active .step-text { color: var(--primary); }
+
+  </style>
+</head>
+
+<body>
+  <nav class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-img"><img src="data:image/png;base64,..." alt="Logo"></div>
+      <div class="logo-text"><h1>Bangla Hope</h1></div>
+    </div>
+    <div class="sidebar-section">
+      <a href="bh_dashboard.html" class="nav-item">Dashboard</a>
+      <a href="bh_students.html" class="nav-item active">All Students</a>
+    </div>
+  </nav>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="breadcrumb">
+        <a href="bh_student_details.html">Rina Begum (#LRC-0124)</a>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <span>ARP 2024 Draft</span>
+      </div>
+      <div style="display: flex; gap: 12px;">
+        <button class="btn btn-secondary" onclick="window.location.href='bh_student_details.html'">Save Draft</button>
+        <button class="btn btn-primary">Submit Report</button>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="form-sections">
+        <div class="card">
+          <span class="annotate-label">Part 1: Academic & Schooling</span>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="label">Current Grade/Class</label>
+              <input type="text" class="input" value="Class 2">
+            </div>
+            <div class="form-group">
+              <label class="label">Academic Result (Last Term)</label>
+              <input type="text" class="input" value="78%">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="label">Teacher's Remarks</label>
+            <textarea class="input" placeholder="Enter teacher's observations...">Rina is adjusting well to the LRC internal school. She is very attentive in Bengali and Creative Arts. She needs slight improvement in Mathematics but shows a positive attitude toward learning.</textarea>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="annotate-label">Part 2: Personal Growth & Health</span>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="label">Health Status</label>
+              <select class="input">
+                <option>Excellent</option>
+                <option selected>Good</option>
+                <option>Follow-up Needed</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="label">Social/Emotional Adjustment</label>
+              <input type="text" class="input" value="Well Adjusted">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="label">Personal Growth Narrative</label>
+            <textarea class="input" placeholder="How has the student changed/grown this year?">Since moving to the residential center, Rina has become more outgoing and has made several close friends. She enjoys participating in the morning worship and singing activities.</textarea>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="annotate-label">Part 3: Message to Sponsor</span>
+          <div class="form-group">
+            <label class="label">Student's Personal Message (Translated)</label>
+            <textarea class="input" placeholder="A direct quote from the student to their sponsor...">"I am very happy at my new home. I love my teachers and my friends. Thank you for helping me go to school. I am studying hard."</textarea>
+          </div>
+          <div style="display: flex; gap: 15px; margin-top: 10px;">
+            <button class="btn btn-outline" style="font-size: 11px;">Upload Hand-written Scan</button>
+            <button class="btn btn-outline" style="font-size: 11px;">Upload Current Drawing</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="status-sidebar">
+        <div class="card">
+          <h3 class="card-title" style="font-size: 16px; margin-bottom: 10px;">ARP Status Hub</h3>
+          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 20px;">Annual Progress Report for Year 2024</p>
+          
+          <div class="progress-track">
+            <div class="step complete">
+              <div class="step-icon">1</div>
+              <div class="step-text">Academic Data</div>
+            </div>
+            <div class="step active">
+              <div class="step-icon">2</div>
+              <div class="step-text">Growth Narrative</div>
+            </div>
+            <div class="step">
+              <div class="step-icon">3</div>
+              <div class="step-text">Sponsor Message</div>
+            </div>
+            <div class="step">
+              <div class="step-icon">4</div>
+              <div class="step-text">Final Review</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px dashed var(--border);">
+            <button class="btn btn-secondary" style="width: 100%; justify-content: center; margin-bottom: 12px;" onclick="window.location.href='bh_arp_pdf_view.html'">Preview PDF [PDF]</button>
+            <button class="btn btn-primary" style="width: 100%; justify-content: center;">Submit for Review</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
