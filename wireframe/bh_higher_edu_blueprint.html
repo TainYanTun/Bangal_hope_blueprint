@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>B&W BLUEPRINT: HIGHER_EDUCATION_MODULE</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: white; color: black; font-family: 'Courier New', Courier, monospace; display: flex; min-height: 100vh; }
+        .annotate { font-size: 9px; border: 1px solid black; padding: 2px 4px; position: absolute; background: white; z-index: 10; text-transform: uppercase; font-weight: bold; }
+        .sidebar { width: 252px; border-right: 2px solid black; display: flex; flex-direction: column; position: relative; }
+        .main { flex: 1; display: flex; flex-direction: column; }
+        .topbar { height: 64px; border-bottom: 2px solid black; padding: 0 20px; display: flex; align-items: center; }
+        .content { padding: 30px; display: flex; flex-direction: column; gap: 30px; }
+        .block { border: 1px solid black; position: relative; padding: 15px; }
+        .block-dashed { border: 1px dashed black; position: relative; padding: 15px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid black; padding: 8px; font-size: 10px; text-align: left; }
+        th { background: #f0f0f0; }
+        .btn-node { border: 1px solid black; padding: 5px 15px; font-size: 10px; font-weight: bold; cursor: pointer; text-decoration: none; color: black; }
+        .status-alert { font-weight: bold; color: red; text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="block" style="height: 80px; margin: 10px; border-style: double; text-align: center;"><br>[BH_LOGO]<br>BANGLA_HOPE</div>
+        <div class="block-dashed" style="margin: 10px;">
+            <div class="annotate" style="top: -10px; left: 10px;">NAV_GRP: PROGRAMS</div>
+            <div class="nav-item">> LRC_HOME</div>
+            <div class="nav-item">> BOARDING</div>
+            <div class="nav-item">> VILLAGE</div>
+            <div class="nav-item" style="background: black; color: white; font-weight: bold;">> HIGHER_ED_TERTIARY</div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div style="font-size: 11px;">SCHEMA: PROGRAM // HIGHER_EDUCATION // MASTER_INSTITUTION_VIEW</div>
+        </header>
+
+        <div class="content">
+            <div style="border-left: 5px solid black; padding-left: 15px;">
+                <h2 style="font-size: 20px;">HIGHER_EDUCATION_AND_TERTIARY</h2>
+                <div style="font-size: 10px;">SCOPE: BASC, BANC, AND INDEPENDENT STUDENTS // TOTAL_ACTIVE: 76</div>
+            </div>
+
+            <!-- INSTITUTION TABBED VIEWS (CONCEPTUAL) -->
+            <div style="display: flex; gap: 10px; border-bottom: 2px solid black; padding-bottom: 5px;">
+                <div class="btn-node" style="border-bottom: 0;">[ALL_STUDENTS]</div>
+                <div class="btn-node" style="border-bottom: 0; background: #eee;">[BASC_COLLEGE]</div>
+                <div class="btn-node" style="border-bottom: 0;">[NURSING_COLLEGE]</div>
+            </div>
+
+            <div class="block">
+                <div class="annotate" style="top: -10px; left: 10px;">INSTITUTION_ROSTER: BASC_COLLEGE</div>
+                <table>
+                    <thead>
+                        <tr><th>AID_NO</th><th>STUDENT_NAME</th><th>DEPT_CLASS</th><th>ACADEMIC_STATUS</th><th>OPERATIONS</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>#LCOR-053</td><td>Chowdhury, Rony</td><td>Education Dept</td><td>GOOD_STANDING</td><td>[VIEW]</td></tr>
+                        <tr><td>#LCOR-115</td><td>Sircar, Urmila</td><td>Old Ten</td><td><span class="status-alert">HOLD</span></td><td>[VIEW]</td></tr>
+                        <tr><td>#LRC-009</td><td>Gayen, Jennie</td><td>Education Dept</td><td>GOOD_STANDING</td><td>[VIEW]</td></tr>
+                        <!-- ... -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="block">
+                <div class="annotate" style="top: -10px; left: 10px;">INSTITUTION_ROSTER: NURSING_COLLEGE</div>
+                <table>
+                    <thead>
+                        <tr><th>AID_NO</th><th>STUDENT_NAME</th><th>DEPT_CLASS</th><th>ACADEMIC_STATUS</th><th>OPERATIONS</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>#LNS-034</td><td>Baroi, Sherry</td><td>DNSM Final</td><td>GOOD_STANDING</td><td>[VIEW]</td></tr>
+                        <tr><td>#LRC-028</td><td>Talukder, Jessica</td><td>Nursing 1st Year</td><td>NEW_ADMIT</td><td>[VIEW]</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>B&W BLUEPRINT: GENERATE_CASE_STUDY</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: white;
+            color: black;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .annotate { font-size: 9px; border: 1px solid black; padding: 2px 4px; position: absolute; background: white; z-index: 10; text-transform: uppercase; font-weight: bold; }
+        .sidebar { width: 252px; border-right: 2px solid black; display: flex; flex-direction: column; position: relative; }
+        .main { flex: 1; display: flex; flex-direction: column; }
+        .topbar { height: 64px; border-bottom: 2px solid black; padding: 0 20px; display: flex; align-items: center; }
+        .content { padding: 30px; display: flex; gap: 30px; }
+
+        .block { border: 1px solid black; position: relative; padding: 15px; }
+        .block-dashed { border: 1px dashed black; position: relative; padding: 15px; }
+        
+        .column-left { width: 340px; display: flex; flex-direction: column; gap: 20px; }
+        .column-right { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+        
+        .btn-node { border: 1px solid black; padding: 8px 15px; font-size: 11px; font-weight: bold; cursor: pointer; text-decoration: none; color: black; text-align: center; display: block; margin-bottom: 10px; }
+        .btn-node:hover { background: #f0f0f0; }
+        .btn-primary-node { background: black; color: white; }
+        
+        .nav-item { border-bottom: 1px dashed #ccc; padding: 10px 5px; font-size: 11px; display: flex; justify-content: space-between; }
+        
+        .field-label { font-size: 9px; font-weight: bold; text-transform: uppercase; margin-bottom: 5px; margin-top: 10px; border-bottom: 1px solid #000; display: inline-block; }
+
+        .pdf-preview { border: 2px solid black; height: auto; min-height: 950px; background: #e0e0e0; display: flex; flex-direction: column; align-items: center; gap: 40px; position: relative; padding: 60px 40px; }
+        .pdf-page { width: 500px; height: 700px; background: white; border: 1px solid black; box-shadow: 5px 5px 0px black; padding: 40px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; position: relative; }
+        .pdf-line { height: 6px; background: #eee; width: 100%; }
+        .pdf-header { border-bottom: 1px solid black; padding-bottom: 10px; margin-bottom: 10px; font-weight: bold; font-size: 12px; text-align: center; }
+        
+        .check-list { font-size: 9px; margin: 10px 0; }
+        .check-item { margin-bottom: 4px; display: flex; align-items: center; gap: 5px; }
+
+        .page-indicator { position: absolute; bottom: 10px; right: 10px; font-size: 8px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="block" style="height: 80px; margin: 10px; border-style: double; text-align: center;">
+            <br>[BH_LOGO]<br>BANGLA_HOPE
+        </div>
+        
+        <div class="block-dashed" style="margin: 10px;">
+            <div class="annotate" style="top: -10px; left: 10px;">NAV_GRP: OVERVIEW</div>
+            <div class="nav-item">> DASHBOARD</div>
+            <div class="nav-item">> ALL_STUDENTS [821]</div>
+        </div>
+
+        <div class="block" style="margin-top: auto; height: 60px; margin: 10px;">
+            USER: MAIN_ADMIN<br>
+            <span style="font-size: 9px;">UID: #9928_HILI</span>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div style="font-size: 11px;">SCHEMA: DIRECTORY // STUDENT_PROFILE // #LRC-0124 // GENERATE_CASE_STUDY</div>
+            <div style="margin-left: auto; display: flex; gap: 10px;">
+                <a href="bh_student_details_blueprint.html" class="btn-node"> [BACK_TO_PROFILE] </a>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- CONFIGURATION COLUMN -->
+            <div class="column-left">
+                <div class="block">
+                    <div class="annotate" style="top: -10px; left: 10px;">CONTENT_INCLUSIONS</div>
+                    
+                    <div class="field-label">PERSONAL_IDENTITY</div>
+                    <div class="check-list">
+                        <div class="check-item">[X] FULL_LEGAL_NAME</div>
+                        <div class="check-item">[X] DATE_OF_BIRTH</div>
+                        <div class="check-item">[X] RELIGION</div>
+                        <div class="check-item">[X] GENDER</div>
+                        <div class="check-item">[X] ADMISSION_DATE</div>
+                    </div>
+
+                    <div class="field-label">FAMILY_BACKGROUND</div>
+                    <div class="check-list">
+                        <div class="check-item">[X] FATHER_NAME</div>
+                        <div class="check-item">[X] FATHER_STATUS</div>
+                        <div class="check-item">[X] MOTHER_NAME</div>
+                        <div class="check-item">[X] MOTHER_STATUS</div>
+                        <div class="check-item">[X] LEGAL_GUARDIAN</div>
+                        <div class="check-item">[X] SIBLINGS</div>
+                        <div class="check-item">[X] CONTACT_INFO</div>
+                    </div>
+
+                    <div class="field-label">NARRATIVE & HISTORY</div>
+                    <div class="check-list">
+                        <div class="check-item">[X] SITUATION_OVERVIEW</div>
+                        <div class="check-item">[X] JOURNEY_TIMELINE</div>
+                    </div>
+
+                    <div class="field-label">MODULES</div>
+                    <div class="check-list">
+                        <div class="check-item">[X] ACADEMIC_RECORDS</div>
+                        <div class="check-item">[X] RECENT_PHOTO</div>
+                    </div>
+
+                    <div class="btn-node btn-primary-node">[REFRESH_PREVIEW]</div>
+                </div>
+
+                <div class="block">
+                    <div class="annotate" style="top: -10px; left: 10px;">EXPORT_ACTIONS</div>
+                    <div class="btn-node">[DOWNLOAD_PDF_FILE]</div>
+                    <div class="btn-node">[SAVE_TO_DOC_ARCHIVE]</div>
+                </div>
+            </div>
+
+            <!-- PREVIEW COLUMN -->
+            <div class="column-right">
+                <div class="pdf-preview">
+                    <div class="annotate" style="top: -10px; left: 10px;">LIVE_PDF_PREVIEW (MULTI-PAGE)</div>
+                    
+                    <!-- PAGE 1 -->
+                    <div class="pdf-page">
+                        <div class="pdf-header">BANGLA HOPE: STUDENT CASE STUDY</div>
+                        <div style="display: flex; gap: 15px; margin-bottom: 10px;">
+                            <div style="width: 80px; height: 100px; border: 1px solid black; text-align: center; font-size: 8px;">[PHOTO]</div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: bold; font-size: 14px;">RINA BEGUM</div>
+                                <div style="font-size: 8px; margin-top: 5px;">
+                                    DOB: 2017-05-12<br>
+                                    GENDER: FEMALE<br>
+                                    RELIGION: ISLAM<br>
+                                    ADMITTED: 2024-01-15
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="font-size: 10px; font-weight: bold; border-bottom: 1px solid black;">FAMILY BACKGROUND</div>
+                        <div style="font-size: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+                            <div>FATHER: MD. ABDUR RASHID</div>
+                            <div>STATUS: DECEASED</div>
+                            <div>MOTHER: MST. FATEMA</div>
+                            <div>STATUS: ALIVE</div>
+                            <div>GUARDIAN: MST. FATEMA</div>
+                            <div>SIBLINGS: 3</div>
+                        </div>
+
+                        <div style="height: 10px;"></div>
+                        <div style="font-size: 10px; font-weight: bold; border-bottom: 1px solid black;">SITUATION OVERVIEW</div>
+                        <div class="pdf-line"></div>
+                        <div class="pdf-line"></div>
+                        <div class="pdf-line" style="width: 60%;"></div>
+
+                        <div class="page-indicator">PAGE 1 OF 2</div>
+                    </div>
+
+                    <!-- PAGE 2 -->
+                    <div class="pdf-page">
+                        <div class="pdf-header">BANGLA HOPE: STUDENT CASE STUDY (CONTD.)</div>
+                        
+                        <div style="font-size: 10px; font-weight: bold; border-bottom: 1px solid black;">ACADEMIC PROGRESS</div>
+                        <div class="pdf-line"></div>
+                        <div class="pdf-line" style="width: 80%;"></div>
+
+                        <div style="height: 10px;"></div>
+                        <div style="font-size: 10px; font-weight: bold; border-bottom: 1px solid black;">JOURNEY TIMELINE</div>
+                        <div style="font-size: 8px;">
+                            * 2024: ADMITTED TO LRC<br>
+                            * 2022: ENROLLED VILLAGE SCHOOL
+                        </div>
+
+                        <div style="margin-top: auto; text-align: center; font-size: 8px; border-top: 1px dashed black; padding-top: 5px;">FOOTER: GENERATED_ON_2024-04-27</div>
+                        <div class="page-indicator">PAGE 2 OF 2</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>B&W BLUEPRINT: INSTITUTION_REGISTRY</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: white; color: black; font-family: 'Courier New', Courier, monospace; display: flex; min-height: 100vh; }
+        .annotate { font-size: 9px; border: 1px solid black; padding: 2px 4px; position: absolute; background: white; z-index: 10; text-transform: uppercase; font-weight: bold; }
+        .sidebar { width: 252px; border-right: 2px solid black; display: flex; flex-direction: column; position: relative; }
+        .main { flex: 1; display: flex; flex-direction: column; }
+        .topbar { height: 64px; border-bottom: 2px solid black; padding: 0 20px; display: flex; align-items: center; }
+        .content { padding: 30px; display: flex; flex-direction: column; gap: 30px; }
+        .block { border: 1px solid black; position: relative; padding: 15px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid black; padding: 8px; font-size: 10px; text-align: left; }
+        th { background: #f0f0f0; }
+        .btn-node { border: 1px solid black; padding: 5px 15px; font-size: 10px; font-weight: bold; cursor: pointer; text-decoration: none; color: black; display: inline-block; }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="block" style="height: 80px; margin: 10px; border-style: double; text-align: center;"><br>[BH_LOGO]<br>BANGLA_HOPE</div>
+        <div class="block" style="margin: 10px;">
+            <div class="annotate" style="top: -10px; left: 10px;">NAV_GRP: SETTINGS</div>
+            <div style="padding: 5px; font-size: 11px;">> USER_ROLES</div>
+            <div style="padding: 5px; font-size: 11px; background: black; color: white;">> INSTITUTION_REGISTRY</div>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div style="font-size: 11px;">SCHEMA: SETTINGS // INSTITUTION_REGISTRY</div>
+        </header>
+
+        <div class="content">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="border-left: 5px solid black; padding-left: 15px;">
+                    <h2 style="font-size: 20px;">INSTITUTION_REGISTRY</h2>
+                    <div style="font-size: 10px;">MANAGE_ACADEMIC_PARTNERS // SCALE_PROGRAM</div>
+                </div>
+                <div class="btn-node">[+] ADD_NEW_INSTITUTION</div>
+            </div>
+
+            <div class="block">
+                <div class="annotate" style="top: -10px; left: 10px;">ACTIVE_REGISTRY_LIST</div>
+                <table>
+                    <thead>
+                        <tr><th>INSTITUTION_ID</th><th>NAME</th><th>LOCATION</th><th>CONTACT_PERSON</th><th>OPERATIONS</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>#INST-001</td><td>BASC_COLLEGE</td><td>BARISAL</td><td>PRINCIPAL_OFFICE</td><td>[EDIT] [ARCHIVE]</td></tr>
+                        <tr><td>#INST-002</td><td>NURSING_COLLEGE</td><td>DHAKA</td><td>REGISTRAR_DESK</td><td>[EDIT] [ARCHIVE]</td></tr>
+                        <tr><td>#INST-003</td><td>TECHNICAL_INST</td><td>JESSORE</td><td>DEAN_OFFICE</td><td>[EDIT] [ARCHIVE]</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
